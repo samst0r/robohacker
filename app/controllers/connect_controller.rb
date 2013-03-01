@@ -16,9 +16,11 @@ class ConnectController < ApplicationController
   end
 
   def oAuth 
-  	redirect_uri = URI('http://stormy-ravine-8438.herokuapp.com/connect/index')
+
+  	uri = URI('https://getpocket.com/v3/oauth/request')
+  	redirect_uri = URI('https://stormy-ravine-8438.herokuapp.com/connect/index')
 	consumer_key = '12115-00e42abdca4960dc82906d1a'
-	res = Net::HTTP.post_form(redirect_uri, 'consumer_key' => consumer_key)
+	res = Net::HTTP.post_form(uri, {'redirect_uri' => redirect_uri, 'consumer_key' => consumer_key} )
 	puts res.body
   end
 

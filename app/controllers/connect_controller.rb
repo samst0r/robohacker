@@ -16,7 +16,7 @@ class ConnectController < ApplicationController
   end
 
   def oAuth 
-  	redirect_uri = URI('http://localhost:3000/')
+  	redirect_uri = URI('http://stormy-ravine-8438.herokuapp.com/connect/index')
 	consumer_key = '12115-00e42abdca4960dc82906d1a'
 	res = Net::HTTP.post_form(redirect_uri, 'consumer_key' => consumer_key)
 	puts res.body

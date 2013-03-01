@@ -1,14 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <title>Robohacker</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Myapp" %></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top">
 
-<%= yield %>
 
-</body>
+         <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">RoboHacker</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><%=link_to "Home", "/"%></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+      </nav>
+    </header>
+    <div id="main" role="main">
+      <div class="container">
+            <%= yield %>
+      <hr>
+
+      <footer>
+        <p>&copy; RoboHacker 2013</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    </div> <!--! end of #main -->
+  </body>
 </html>

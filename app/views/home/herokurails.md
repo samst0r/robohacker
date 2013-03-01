@@ -1,8 +1,18 @@
-# Heroku + OSX + RAILS
+Heroku + OSX + RAILS
+====================
 
-1. Register with Heroku
-2. Get PostGreSQL
-3. Get Ruby
-4. Get Rails
-5. Bootstrap
-6. 
+Steps
+-----
+1.  Register with Heroku
+        www.heroku.com
+
+
+2.  Get PostGreSQL
+        www.postgresql.com
+
+3.  Get Ruby
+
+4.  Get Rails
+ 
+5.  Bootstrap
+

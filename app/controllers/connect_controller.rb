@@ -5,9 +5,13 @@ require 'net/http'
 class ConnectController < ApplicationController
   def index
 
-  	@json = getJSON[0]["url"]
+  	url = getJSON[0]["url"]
+  	title = getJSON[0]["title"]
 
-  	@oauth_response = oAuth()
+  	@link = 'https://getpocket.com/save?url=' << url << '&title=' << title
+
+  	@json = getJSON
+
 
   end
 
@@ -22,6 +26,7 @@ class ConnectController < ApplicationController
 	consumer_key = '12115-00e42abdca4960dc82906d1a'
 	res = Net::HTTP.post_form(uri, {'redirect_uri' => redirect_uri, 'consumer_key' => consumer_key} )
 	puts res.body
+
   end
 
 end

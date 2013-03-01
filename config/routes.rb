@@ -1,6 +1,8 @@
 Robohacker::Application.routes.draw do
   get "connect/index"
 
+  match "connect/" => 'connect#index'
+
   get "home/index"
 
   # The priority is based upon order of creation:

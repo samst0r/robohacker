@@ -8,15 +8,25 @@ class ConnectController < ApplicationController
   	url = getJSON[0]["url"]
   	title = getJSON[0]["title"]
 
-  	@link = 'https://getpocket.com/save?url=' << url << '&title=' << title
 
+    @link = producePocketURL(url, title)
   	@json = getJSON
-
 
   end
 
+  def producePocketURL(url, title)
+    link = 'https://getpocket.com/save?url=' << url << '&title=' << title
+  end
+
   def getJSON
-  	JSON.parse(open("http://apify.heroku.com/api/hacker_news.json").read)
+  	json = JSON.parse(open("http://apify.heroku.com/api/hacker_news.json").read)
+
+    if (json == null)
+      json[0]["url"] = "null"
+      json[0]["title"] = "title"
+    end if
+
+    puts json
   end
 
   def oAuth 
